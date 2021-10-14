@@ -1,4 +1,4 @@
-const port = process.env.port || 8000;
+const PORT = process.env.PORT || 8000;
 const express = require('express');
 const cheerio = require('cheerio');
 const axios = require('axios');
@@ -157,6 +157,6 @@ app.get('/', (req, res) => {
 
 app.get('/squidify', (req, res) => {
     res.json(articles)
-}).catch(err => console.log(err))
+})
 
-app.listen(port, () => console.log('server listening on port: ', port))
+app.listen(PORT, () => console.log('server listening on port: ', PORT))
