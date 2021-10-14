@@ -171,11 +171,11 @@ function removeDuplicateObjectFromArray(articles, key) {
 }
 
 app.get('/', (req, res) => {
-    res.json("Welcome to my API about Squid Game");
+    res.json("Welcome to 'Squidify API', the API that currently scrapes 31 webpages about TV-shows, for any article-titles containing the words Squid Game. Endpoint: '/squidify'");
 })
 
 app.get('/squidify', (req, res) => {
-    res.json(removeDuplicateObjectFromArray(articles, "url"))
+    res.json(removeDuplicateObjectFromArray(articles, "url"))   
 })
 
 app.listen(PORT, () => console.log('server listening on port: ', PORT))
