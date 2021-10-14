@@ -158,12 +158,24 @@ webpages.forEach(webpage => {
         })
 })
 
+function removeDuplicateObjectFromArray(articles, key) {
+    let check = {};
+    let res = [];
+    for(let i=0; i<articles.length; i++) {
+        if(!check[articles[i][key]]){
+            check[articles[i][key]] = true;
+            res.push(articles[i]);
+        }
+    }
+    return res;
+}
+
 app.get('/', (req, res) => {
     res.json("Welcome to my API about Squid Game");
 })
 
 app.get('/squidify', (req, res) => {
-    res.json(articles)
+    res.json(removeDuplicateObjectFromArray(articles, "url"))
 })
 
 app.listen(PORT, () => console.log('server listening on port: ', PORT))
