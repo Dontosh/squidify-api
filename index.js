@@ -157,6 +157,6 @@ app.get('/', (req, res) => {
 
 app.get('/squidify', (req, res) => {
     res.json(articles)
-})
+}).catch(err => console.log(err))
 
 app.listen(port, () => console.log('server listening on port: ', port))
