@@ -125,8 +125,15 @@ const webpages = [
     {
         name: "Mashable",
         address: "https://mashable.com/category/tv-shows"
+    },
+    {
+        name: "Uproxx",
+        address: "https://uproxx.com/tv/best-new-tv-shows-to-stream-october-succession/"
+    },
+    {
+        name: "MSN Insider",
+        address: "https://www.msn.com/en-us/tv/news/the-15-best-netflix-tv-shows-of-2021-so-far-ranked/ss-AAKvDY9"
     }
-
 ]
 
 const app = express();
