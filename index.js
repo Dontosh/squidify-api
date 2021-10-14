@@ -31,10 +31,6 @@ const webpages = [
         address: "https://www.monstersandcritics.com"
     },
     {
-        name: "Roku",
-        address: "https://www.roku.com/blog/en-gb"
-    },
-    {
         name: "TV Insider",
         address: "https://www.tvinsider.com"
     },
@@ -107,10 +103,6 @@ const webpages = [
         address: "https://www.tomsguide.com/news/new-tv-shows"
     },
     {
-        name: "itv",
-        address: "https://www.itv.com/news"
-    },
-    {
         name: "The Hollywood Reporter",
         address: "https://www.hollywoodreporter.com/c/tv/"
     },
@@ -138,18 +130,19 @@ const webpages = [
         name: "Marca",
         address: "https://www.marca.com/en/lifestyle/tv-shows.html"
     },
-    
+
 ]
 
 const app = express();
 
 webpages.forEach(webpage => {
+
     axios.get(webpage.address)
         .then(response => {
             const html = response.data
             const $ = cheerio.load(html)
 
-            $('a:contains("Squid")', html).each(function() {
+            $('a:contains("Squid")', html).each(function () {
 
                 const title = $(this).text()
                 const url = $(this).attr('href')
@@ -160,14 +153,16 @@ webpages.forEach(webpage => {
                     source: webpage.name
                 })
             })
-        })
+        }).catch((err => {
+            console.error(err)
+        }))
 })
 
 function removeDuplicateObjectFromArray(articles, key) {
     let check = {};
     let res = [];
-    for(let i=0; i<articles.length; i++) {
-        if(!check[articles[i][key]]){
+    for (let i = 0; i < articles.length; i++) {
+        if (!check[articles[i][key]]) {
             check[articles[i][key]] = true;
             res.push(articles[i]);
         }
