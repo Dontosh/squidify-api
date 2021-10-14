@@ -133,7 +133,12 @@ const webpages = [
     {
         name: "MSN Insider",
         address: "https://www.msn.com/en-us/tv/news/the-15-best-netflix-tv-shows-of-2021-so-far-ranked/ss-AAKvDY9"
-    }
+    },
+    {
+        name: "Marca",
+        address: "https://www.marca.com/en/lifestyle/tv-shows.html"
+    },
+    
 ]
 
 const app = express();
